@@ -2,7 +2,6 @@
 
 This projects aims to validate Panama [Registro Único de Contribuyente](https://es.wikipedia.org/wiki/Documento_Personal_de_Identificaci%C3%B3n) identification document.
 This project depends on `validates_identity` gem and is a plugin for it.
-This project is based on documentations found [here](https://learn.sayari.com/interpreting-guatemalan-national-id-numbers/) and [here](https://www.mineduc.gob.gt/DIGEESP/documents/adecuacionesCurriculares/Documentos%20de%20Apoyo/C%C3%B3digos%20Departamentos-Municipios-Idiomas.pdf)
 
 ## Installation
 
