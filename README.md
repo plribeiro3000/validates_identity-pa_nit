@@ -1,8 +1,8 @@
 # ValidatesIdentity::PaRuc
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/validates_identity/pa_ruc`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This projects aims to validate Panama [Registro Único de Contribuyente](https://es.wikipedia.org/wiki/Documento_Personal_de_Identificaci%C3%B3n) identification document.
+This project depends on `validates_identity` gem and is a plugin for it.
+This project is based on documentations found [here](https://learn.sayari.com/interpreting-guatemalan-national-id-numbers/) and [here](https://www.mineduc.gob.gt/DIGEESP/documents/adecuacionesCurriculares/Documentos%20de%20Apoyo/C%C3%B3digos%20Departamentos-Municipios-Idiomas.pdf)
 
 ## Installation
 
@@ -22,7 +22,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Just use as any other validator:
+
+```ruby
+class User < ActiveRecord::Base
+  # :identity_type is the attribute that will be used to determine the identity type and is required
+  validates :identity, identity: { identity_type: :identity_type }
+end
+```
+
+## Advanced Usage
+
+New Identity Validators can be registered through the public apis of `ValidatesIdentity`
+
+```ruby
+ValidatesIdentity.register_identity_type('CustomIdentity', CustomIdentityValidator)
+```
+
+Each Validator should have:
+
+- a constructor with 2 params: `value` and `options` as a hash
+- a `valid?` method that returns a boolean
+
+In case of a legacy system where keys were already defined and differ from the official ones, aliases can be registered as well
+
+```ruby
+ValidatesIdentity.register_identity_type_alias('LegacyIdentity', 'CustomIdentity')
+```
 
 ## Development
 
