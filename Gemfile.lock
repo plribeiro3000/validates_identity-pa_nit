@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    validates_identity-pa_ruc (0.1.0)
+    validates_identity-pa_ruc (1.0.0)
       activemodel
       validates_identity (>= 0.5.0)
 
