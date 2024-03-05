@@ -18,7 +18,9 @@ class ValidatesIdentity
       end
 
       def formatted
-        value
+        return if result.nil?
+
+        "#{result[1]}-#{result[2]}-#{result[3]}"
       end
 
       private
